@@ -1,3 +1,4 @@
+
 pipeline {
 	agent {
 		kubernetes {
@@ -14,6 +15,14 @@ spec:
 """
 		}
 	}
+	stages {
+		stage('Run maven') {
+			steps {
+				container('maven') {
+					sh 'mvn -version'
+					sh 'sleep 300'
+				}
+			}
 	stage('rabbitmq') {
             steps {
                 script {
