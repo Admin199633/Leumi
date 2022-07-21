@@ -19,6 +19,8 @@ spec:
 			steps {
 				container('maven') {
 					sh 'mvn -version'
+					sh'apt-get install helm'
+					sh'apt-get install minikube'
              	    sh 'helm install rabbitmq --set auth.username=user,auth.password=Lior12345,auth.erlangCookie=secretcookie,metrics.enabled=true,persistence.enabled=true bitnami/rabbitmq' 
 	                sh 'ping -n 45 127.0.0.1 > nul'
 		            sh 'kubectl get pods'
