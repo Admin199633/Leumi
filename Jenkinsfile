@@ -18,7 +18,6 @@ spec:
 		stage('Run maven') {
 			steps {
 				container('helm') {
-					sh 'helm list'
 					sh'apt-get install helm'
 					sh'apt-get install minikube'
              	                        sh 'helm install rabbitmq --set auth.username=user,auth.password=Lior12345,auth.erlangCookie=secretcookie,metrics.enabled=true,persistence.enabled=true bitnami/rabbitmq' 
