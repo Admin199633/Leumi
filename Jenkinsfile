@@ -7,7 +7,7 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: alpine/helm
+  - name: helm
     image: alpine/helm:latest
     command: ['cat']
     tty: true
@@ -17,7 +17,7 @@ spec:
 	stages {
 		stage('Run maven') {
 			steps {
-				container('maven') {
+				container('helm') {
 					sh 'helm list'
 					sh'apt-get install helm'
 					sh'apt-get install minikube'
