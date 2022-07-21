@@ -9,6 +9,7 @@ pipeline {
 	stage('Creata DND(docker in docker)') {
             steps {
                 script {
+		    sh 'apt-get install minikube' 
 		    sh 'kubectl apply -f docker.yml'
 		    sh 'echo docker in docker'
                 }
