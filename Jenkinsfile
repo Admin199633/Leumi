@@ -42,7 +42,7 @@ spec:
 		    bat "start/min docker run -p -p 127.0.0.1:8777:8777 $BUILD_NUMBER"
                 }
             }
-         }
+         
 	stage('docker push') {
             steps {
                 script {
@@ -53,7 +53,7 @@ spec:
 		    bat 'echo docker push'	
                  }
             }
-        } 
+        
         stage('Helm create producer') {
             steps {
                 script {
@@ -63,7 +63,7 @@ spec:
 		    bat 'kubectl get pods'	
                  }
             }
-        } 
+        
         stage('Helm create consumer') {
             steps {
                 script {
@@ -73,7 +73,7 @@ spec:
 		    bat 'kubectl get pods'	
                  }
             }
-        } 	
+        
 	stage('monitoring') {
             steps {
                 script {
@@ -91,4 +91,4 @@ spec:
             }
         }
     }
-		}
+}
