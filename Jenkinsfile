@@ -8,7 +8,7 @@ kind: Pod
 spec:
   containers:
   - name: helm
-    image: alpine/helm:latest
+    image: ubuntu:latest
     command: ['cat']
     tty: true
 """
