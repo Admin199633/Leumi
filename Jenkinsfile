@@ -33,7 +33,7 @@ spec:
 		    bat 'start /min python ./expose-RabbitMQ.py'	
                  }
             }
-        }  
+         
 	stage('Build Docker image - locally') {
             steps {
                 script{
@@ -90,4 +90,5 @@ spec:
                 }
             }
         }
-}
+    }
+
