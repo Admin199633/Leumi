@@ -3,18 +3,16 @@ pipeline {
     stages {
         stage('properties') {
             steps {
-                script {
-                    properties([pipelineTriggers([pollSCM('*/30 * * * *')])])
-                    properties([buildDiscarder(logRotator(daysToKeepStr: '5', numToKeepStr: '20')),])
-                }
-		git branch: 'main', url: 'https://github.com/Admin199633/Main.git'
+                git branch: 'main', url: 'https://github.com/Admin199633/Project_Devops.git'
             }
         }
-        stage('Build:Flask.py') {
+	stage('Creata DND(docker in docker)') {
             steps {
                 script {
-                    bat 'start python selenium.py'
-                    bat 'echo success selenium.py'
+		    sh 'kubectl apply -f docker.yml'
+		    sh 'echo docker in docker'
                 }
             }
         }
+    }
+   
